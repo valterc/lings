@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiNGSServer", "LiNGSServer\LiNGSServer.csproj", "{8900706A-FEE4-4C61-8E24-2ED8E61696A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiNGSClient", "LiNGSClient\LiNGSClient.csproj", "{84AC200B-D8CA-4145-9E05-2CA2515AE893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiNGSCommon", "LiNGSCommon\LiNGSCommon.csproj", "{90AADF31-3C04-4DBE-A26A-0863985179FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8900706A-FEE4-4C61-8E24-2ED8E61696A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8900706A-FEE4-4C61-8E24-2ED8E61696A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8900706A-FEE4-4C61-8E24-2ED8E61696A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8900706A-FEE4-4C61-8E24-2ED8E61696A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84AC200B-D8CA-4145-9E05-2CA2515AE893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84AC200B-D8CA-4145-9E05-2CA2515AE893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84AC200B-D8CA-4145-9E05-2CA2515AE893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84AC200B-D8CA-4145-9E05-2CA2515AE893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90AADF31-3C04-4DBE-A26A-0863985179FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90AADF31-3C04-4DBE-A26A-0863985179FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90AADF31-3C04-4DBE-A26A-0863985179FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90AADF31-3C04-4DBE-A26A-0863985179FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
