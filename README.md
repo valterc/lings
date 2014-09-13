@@ -3,7 +3,7 @@ LiNGS - Lightweight Networked Game System
 
 ###Framework for networked multiplayer mobile games
 
-LiNGS is framework that provides the capability of network multiplayer to mobile games and is designed to work on Unity 4+ as a standalone plugin. 
+LiNGS is a framework that provides the capability of network multiplayer to mobile games and is designed to work on Unity 4+ as a standalone plugin. 
 
 
 
