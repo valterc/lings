@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{585EEAC5-E812-4C49-A972-B88493001C7F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Striker</RootNamespace>
+    <AssemblyName>Striker</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NOT_UNITY</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GenericAI">
+      <HintPath>..\..\..\..\..\..\Documents\Visual Studio 2013\Projects\DrawnToLightSolver\GenericAI\bin\Debug\GenericAI.dll</HintPath>
+    </Reference>
+    <Reference Include="LiNGSCommon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\LiNGSCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="LiNGSServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\LiNGSServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Characters\Character.cs" />
+    <Compile Include="Characters\CharName.cs" />
+    <Compile Include="Characters\CPlayer.cs" />
+    <Compile Include="Characters\NPC.cs" />
+    <Compile Include="Characters\Player.cs" />
+    <Compile Include="Elements\Bullet.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="GameController.cs" />
+    <Compile Include="IA\Operators\MoveDownOperator.cs" />
+    <Compile Include="IA\Operators\MoveLeftOperator.cs" />
+    <Compile Include="IA\Operators\MoveRightOperator.cs" />
+    <Compile Include="IA\Operators\MoveUpOperator.cs" />
+    <Compile Include="IA\StrikerHeuristic.cs" />
+    <Compile Include="IA\StrikerIAState.cs" />
+    <Compile Include="Levels\Elements\Element.cs" />
+    <Compile Include="Levels\Elements\Floor.cs" />
+    <Compile Include="Levels\Elements\Lava.cs" />
+    <Compile Include="Levels\Elements\Wall.cs" />
+    <Compile Include="Levels\Level.cs" />
+    <Compile Include="Levels\LevelLoader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="States\End\GameEndState.cs" />
+    <Compile Include="States\GameState.cs" />
+    <Compile Include="States\Menu\MenuGameState.cs" />
+    <Compile Include="States\Play\PlayerController.cs" />
+    <Compile Include="States\Play\PlayGameState.cs" />
+    <Compile Include="States\Play\SpawnPoint.cs" />
+    <Compile Include="StrikerServer.cs" />
+    <Compile Include="Vector2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\LiNGSCommon.dll" />
+    <Content Include="Libs\LiNGSCommon.xml" />
+    <Content Include="Libs\LiNGSServer.dll" />
+    <Content Include="Libs\LiNGSServer.xml" />
+    <Content Include="Resources\Levels\level0.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

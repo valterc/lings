@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F58D478-71FA-D025-41FE-03A2AF11036C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_3;UNITY_4_3;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_ANDROID;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;UNITY_ANDROID_API;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_3;UNITY_4_3;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="GenericAI">
+      <HintPath>Assets\Plugins\GenericAI.dll</HintPath>
+    </Reference>
+    <Reference Include="LiNGSClient">
+      <HintPath>Assets\Plugins\LiNGS\LiNGSClient.dll</HintPath>
+    </Reference>
+    <Reference Include="LiNGSCommon">
+      <HintPath>Assets\Plugins\LiNGS\LiNGSCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="LiNGSServer">
+      <HintPath>Assets\Plugins\LiNGS\LiNGSServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Striker">
+      <HintPath>Assets\Plugins\Striker.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="UnityVS.slings.CSharp.Plugins.csproj">
+      <Project>{FAE5B8A3-8930-7EA6-51C2-E5469C6BBD3F}</Project>
+      <Name>UnityVS.slings.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\CNJoystick\Scripts\CN2DController.cs" />
+    <Compile Include="Assets\CNJoystick\Scripts\CNCameraFollow.cs" />
+    <Compile Include="Assets\CNJoystick\Scripts\CNCameraRelativeSetup.cs" />
+    <Compile Include="Assets\CNJoystick\Scripts\CNJoystick.cs" />
+    <Compile Include="Assets\CNJoystick\Scripts\SkeletonAnimator.cs" />
+    <Compile Include="Assets\NetworkClient.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\BallGameObject.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Bullet.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\DisconnectedGameMenu.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameEndMenu.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameStartingMessage.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\KillCounter.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\Elements\Element.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\Elements\Floor.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\Elements\Lava.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\Elements\Wall.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\Level.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\LevelLoader.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\NPC\NPC.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\ObjectManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Player.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Hypervisor.cs" />
+    <Compile Include="Assets\Scripts\Menus\ClientMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\ConnectedMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\ConnectingMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\DisconnectedMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\Menu.cs" />
+    <Compile Include="Assets\Scripts\Menus\MenuButton.cs" />
+    <Compile Include="Assets\Scripts\Menus\MenuManager.cs" />
+    <Compile Include="Assets\Scripts\Menus\PlayMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\ScaledValue.cs" />
+    <Compile Include="Assets\Scripts\Menus\ServerMenu.cs" />
+    <Compile Include="Assets\Scripts\NetworkServer.cs" />
+    <Compile Include="Assets\Scripts\OLD_NetworkClient.cs" />
+    <None Include="Assets\CNJoystick\OnScreenControls\Initial Pack\Sprites\flatDark\flatDark.xml" />
+    <None Include="Assets\Resources\Levels\level0.txt" />
+    <None Include="Assets\Resources\names.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+</Project>

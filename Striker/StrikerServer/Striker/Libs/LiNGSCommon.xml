@@ -1,0 +1,503 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LiNGSCommon</name>
+    </assembly>
+    <members>
+        <member name="T:LiNGS.Common.Debug.MessageInfo">
+            <summary>
+            Debug information for a <see cref="T:LiNGS.Common.Network.NetworkMessage"/>.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Debug.MessageInfo.Time">
+            <summary>
+            The time when message was sent/received.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Debug.MessageInfo.Size">
+            <summary>
+            The size of the message.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.Debug.Statistics">
+            <summary>
+            Calculates operational statistics for the LiNGS System.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.#ctor">
+            <summary>
+            Creates a new empty instance of this class.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.ReceivedMessage(LiNGS.Common.Network.NetworkMessage)">
+            <summary>
+            Indicate that the system received a message.
+            </summary>
+            <param name="message">The received message.</param>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.SendMessage(LiNGS.Common.Network.NetworkMessage)">
+            <summary>
+            Indicate that the system will sent a message.
+            </summary>
+            <param name="message">The sent message.</param>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.Reset">
+            <summary>
+            Clear all the message information.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastMinuteSentMessagesCount">
+            <summary>
+            Returns the count of messages sent on the last minute.
+            </summary>
+            <returns>The number of messages sent.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastMinuteSentMessagesSize">
+            <summary>
+            Calculates the average size of the messages sent in the last minute.
+            </summary>
+            <returns>The average size of the messages.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastMinuteReceivedMessagesCount">
+            <summary>
+            Returns the count of messages received on the last minute.
+            </summary>
+            <returns>The number of messages received.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastMinuteReceivedMessagesSize">
+            <summary>
+            Calculates the average size of the messages received in the last minute.
+            </summary>
+            <returns>The average size of the messages.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastSecondSentMessagesCount">
+            <summary>
+            Returns the count of messages received on the last minute.
+            </summary>
+            <returns>The number of messages sent.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastSecondSentMessagesSize">
+            <summary>
+            Calculates the average size of the messages sent in the last second.
+            </summary>
+            <returns>The average size of the messages.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastSecondReceivedMessagesCount">
+            <summary>
+            Returns the count of messages received on the last second.
+            </summary>
+            <returns>The number of messages received.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetLastSecondReceivedMessagesSize">
+            <summary>
+            Calculates the average size of the messages received in the last second.
+            </summary>
+            <returns>The average size of the messages.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetTotalSentMessagesByMinuteCount">
+            <summary>
+            Calculates the average number of messages sent per minute.
+            </summary>
+            <returns>The number of messages sent.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetTotalReceivedMessagesByMinuteCount">
+            <summary>
+            Calculates the average number of messages received per minute.
+            </summary>
+            <returns>The number of messages received.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetSentMessagesCount">
+            <summary>
+            Returns the count of sent messages since the beginning of the game.
+            </summary>
+            <returns>The number of messages sent.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetSentMessagesSize">
+            <summary>
+            Calculates the average size of all the sent messages.
+            </summary>
+            <returns>The average size of the messages.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetReceivedMessagesCount">
+            <summary>
+            Returns the count of received messages since the beginning of the game.
+            </summary>
+            <returns>The number of messages received.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Debug.Statistics.GetReceivedMessagesSize">
+            <summary>
+            Calculates the average size of all received messages.
+            </summary>
+            <returns>The average size of the messages.</returns>
+        </member>
+        <member name="T:LiNGS.Common.GameCycle.ILateUpdatable">
+            <summary>
+            Represents an object that can be updated. 
+            This object will be updated after the <see cref="T:LiNGS.Common.GameCycle.IUpdatable"/> objects.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.GameCycle.ILateUpdatable.LateUpdate(System.TimeSpan)">
+            <summary>
+            Update the object.
+            </summary>
+            <param name="timeSinceLastLateUpdate">Time elapsed since this function was last called.</param>
+        </member>
+        <member name="T:LiNGS.Common.GameCycle.IUpdatable">
+            <summary>
+            Represents an object that can be updated.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.GameCycle.IUpdatable.Update(System.TimeSpan)">
+            <summary>
+            Update the object.
+            </summary>
+            <param name="timeSinceLastUpdate">Time elapsed since this function was last called.</param>
+        </member>
+        <member name="T:LiNGS.Common.GameCycle.UpdateManager">
+            <summary>
+            Manage the updating of <see cref="T:LiNGS.Common.GameCycle.IUpdatable"/> and <see cref="T:LiNGS.Common.GameCycle.ILateUpdatable"/> objects.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.GameCycle.UpdateManager.#ctor">
+            <summary>
+            Creates a new instance of this class.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.GameCycle.UpdateManager.AddUpdatable(LiNGS.Common.GameCycle.IUpdatable)">
+            <summary>
+            Adds a new <see cref="T:LiNGS.Common.GameCycle.IUpdatable"/> to be updated.
+            </summary>
+            <param name="updatable">The object to be updated.</param>
+        </member>
+        <member name="M:LiNGS.Common.GameCycle.UpdateManager.AddLateUpdatable(LiNGS.Common.GameCycle.ILateUpdatable)">
+            <summary>
+            Adds a new <see cref="T:LiNGS.Common.GameCycle.ILateUpdatable"/> to be updated.
+            </summary>
+            <param name="lateUpdatable">The object to be updated.</param>
+        </member>
+        <member name="M:LiNGS.Common.GameCycle.UpdateManager.Update">
+            <summary>
+            Updates this object. 
+            All the <see cref="T:LiNGS.Common.GameCycle.IUpdatable"/> and <see cref="T:LiNGS.Common.GameCycle.ILateUpdatable"/> added to this object will be updated as well.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.GameLogic.INetworkedObject">
+            <summary>
+            Represent an object that can be synchronized with the LiNGS System.
+            <remarks>
+            The synchronization system can stop syncing this object if the client doesn't need the object information at that time. 
+            In order for the object to known if it was deactivated/activated the object must implement a method with the following signature:
+            <code>
+            public void LiNGSSetActive(bool active){ }
+            </code>
+            This method will be invoked to activate/deactivate the object.
+            </remarks>
+            
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.GameLogic.NetworkedField">
+            <summary>
+            Represent a attribute that indicates that a field should be synchronized by the LiNGS System.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.GameLogic.NetworkedField.Simulated">
+            <summary>
+            Indicates if a field should be simulated.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.LiNGSMarkers">
+            <summary>
+            String markers used internally on the LiNGS System.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.Namespace">
+            <summary>
+            The namespace used to identify the message.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.Separator">
+            <summary>
+            Separator used when multiple data is joined together.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.Id">
+            <summary>
+            Indicates that the data is an Id.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.SessionUserId">
+            <summary>
+            Indicates that the data is an SessionUserId.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.TimeOffset">
+            <summary>
+            Indicates that the data is a time offset.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.Error">
+            <summary>
+            Indicates that an error has occurred.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.Ok">
+            <summary>
+            Indicates that the request was successful.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.CreateObject">
+            <summary>
+            Indicates that an object should be created.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.ObjectType">
+            <summary>
+            Indicates the type of an object.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.AutoCreatedObject">
+            <summary>
+            Indicates if the object was automatically created.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.DestroyObject">
+            <summary>
+            Indicates that an object should be destroyed.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.UsingSavedState">
+            <summary>
+            Indicates that a saved state will be used.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.Reason">
+            <summary>
+            Indicates a reason for the response.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.LiNGSMarkers.SetActive">
+            <summary>
+            Indicates that an object should be activated/deactivated.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.Network.NetworkClient">
+            <summary>
+            Represent a network client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkClient.LastReceivedConnectionTime">
+            <summary>
+            The last time a connection was received from the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkClient.LastSentConnectionTime">
+            <summary>
+            The last time a connection was sent to the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkClient.EndPoint">
+            <summary>
+            The client endpoint.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkClient.Latency">
+            <summary>
+            The latency between this system and the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkClient.TimeOffset">
+            <summary>
+            The time offset of the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkClient.MessageId">
+            <summary>
+            The current message Id of this particular client.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.Network.NetworkMessage">
+            <summary>
+            Represents a message to be transmitted between two systems via a network.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.#ctor">
+            <summary>
+            Creates a empty instance of this class.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.#ctor(LiNGS.Common.Network.NetworkMessage.MessageType,LiNGS.Common.Network.MessageData[])">
+            <summary>
+            Creates a instance of this class with the specified type and contents.
+            </summary>
+            <param name="type">The type of the message.</param>
+            <param name="data">The contents of the message.</param>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.#ctor(System.Byte[])">
+            <summary>
+            Deserializes a message
+            </summary>
+            <param name="serializedMessage">Serialized message</param>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.#ctor(System.Byte[],System.Net.EndPoint)">
+            <summary>
+            Deserializes a message
+            </summary>
+            <param name="serializedMessage">Serialized message</param>
+            <param name="senderEndPoint">Message origin</param>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.Serialize">
+            <summary>
+            Serializes the message into a network friendly data format
+            MESSAGE => TYPE|ID|NEEDS_ACK|DATA_LENGTH|{[DATA_LENGTH|DATA] 0..N}
+            </summary>
+            <returns>Serialized message</returns>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.ToString">
+            <summary>
+            Converts the message to a <see cref="T:System.String"/> representation.
+            </summary>
+            <returns>String representation of the object.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Network.NetworkMessage.ConfirmReception">
+            <summary>
+            Confirms the reception of this message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.Type">
+            <summary>
+            The type of the message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.Data">
+            <summary>
+            The contents of the message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.From">
+            <summary>
+            The endpoint of the sender of the message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.Length">
+            <summary>
+            Size of the message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.NeedsAck">
+            <summary>
+            Indicates if the message needs to be Acknowledged.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.MessageId">
+            <summary>
+            The id of the message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.NetworkMessage.OnReceived">
+            <summary>
+            The method to invoke when the message reception is confirmed.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.Network.NetworkMessage.MessageType">
+            <summary>
+            Type of the <see cref="T:LiNGS.Common.Network.NetworkMessage"/>.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Connect">
+            <summary>
+            Used to establish a connection.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Disconnect">
+            <summary>
+            Used to terminate a connection.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Ack">
+            <summary>
+            Knowledges the reception of a message.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Data">
+            <summary>
+            Message with game data.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Game">
+            <summary>
+            Message sent by the game implementation.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Event">
+            <summary>
+            Message sent by the game implementation.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Error">
+            <summary>
+            Message sent by the game implementation.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.ErrorConnect">
+            <summary>
+            Indicates that an error ocurred when establishing a connection.
+            </summary>
+        </member>
+        <member name="F:LiNGS.Common.Network.NetworkMessage.MessageType.Heartbeat">
+            <summary>
+            Check if a client is still online.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Common.Network.MessageData">
+            <summary>
+            Represent a piece of information transmitted in a <see cref="T:LiNGS.Common.Network.NetworkMessage"/>.
+            This information is composed of 3 strings: Object, Property, Value
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Network.MessageData.#ctor">
+            <summary>
+            Creates a new empty instance of this class.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Common.Network.MessageData.#ctor(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of this class with the deserialized data.
+            </summary>
+            <param name="serializedMessageData">Serialized data.</param>
+            <param name="index">The index of the data.</param>
+            <param name="count">The size of the data.</param>
+        </member>
+        <member name="M:LiNGS.Common.Network.MessageData.Serialize">
+            <summary>
+            Serializes the data.
+            </summary>
+            <returns>Serialized data.</returns>
+        </member>
+        <member name="M:LiNGS.Common.Network.MessageData.ToString">
+            <summary>
+            Represents this object in a <see cref="T:System.String"/>.
+            </summary>
+            <returns>String representation of the object.</returns>
+        </member>
+        <member name="P:LiNGS.Common.Network.MessageData.Length">
+            <summary>
+            The size of the message (in bytes)
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.MessageData.Object">
+            <summary>
+            The object name
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.MessageData.Property">
+            <summary>
+            The property name
+            </summary>
+        </member>
+        <member name="P:LiNGS.Common.Network.MessageData.Value">
+            <summary>
+            The property value
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,446 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LiNGSServer</name>
+    </assembly>
+    <members>
+        <member name="M:LiNGS.Server.Aggregator.BufferedNetworkMessage.#ctor(System.TimeSpan)">
+            <summary>
+            Creates a new instance of <see cref="T:LiNGS.Server.Aggregator.BufferedNetworkMessage"/>
+            </summary>
+            <param name="timeout">The maximum time that the message can be hold in the buffer</param>
+        </member>
+        <member name="T:LiNGS.Server.GameClient">
+            <summary>
+            Represent a client.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.GameClient.#ctor">
+            <summary>
+            Creates a new instance of this class with the current session identification and generates a new unique session user identification.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.GameClient.#ctor(System.String)">
+            <summary>
+            Creates a new instance of this class with the information of a user session identification.
+            </summary>
+            <param name="sessionString">The identification of the user and session.</param>
+        </member>
+        <member name="P:LiNGS.Server.GameClient.NetworkClient">
+            <summary>
+            The network information of the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.GameClient.SessionUserId">
+            <summary>
+            The client identification within this session of the game.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.GameClient.UserId">
+            <summary>
+            The client identification.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.GameClient.SessionId">
+            <summary>
+            The session identification.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.GameClient.ConnectedAt">
+            <summary>
+            The time that this client established a connection.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Server.GameLogic.ClientConnectionResponse">
+            <summary>
+            Represents an answer to a client connection request.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.ClientConnectionResponse.#ctor">
+            <summary>
+            Constructs a new <see cref="T:LiNGS.Server.GameLogic.ClientConnectionResponse"/> refusing the user connection.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.ClientConnectionResponse.#ctor(System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Constructs a new <see cref="T:LiNGS.Server.GameLogic.ClientConnectionResponse"/> indicating if the client should be accepted and if the server should restore a previously saved state.
+            </summary>
+            <param name="accept">True to accept user connection, False to refuse</param>
+            <param name="useSavedState">True to try to use a previously saved state, False otherwise</param>
+            <param name="refuseMessage">Text message to be sent to the user explaining why his connection was refused if that was the case</param>
+        </member>
+        <member name="P:LiNGS.Server.GameLogic.ClientConnectionResponse.Accept">
+            <summary>
+            Indicates if the connecting client should be accepted into the server
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.GameLogic.ClientConnectionResponse.UseSavedState">
+            <summary>
+            Indicates if the server should try to use any saved state for the connecting user
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.GameLogic.ClientConnectionResponse.RefuseMessage">
+            <summary>
+            Reason for the connection refusal if that was the case
+            </summary>
+        </member>
+        <member name="T:LiNGS.Server.GameLogic.GameLogicProcessor">
+            <summary>
+            Handles the logic processing of the server side of the LiNGS System.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.ClientDisconnected(LiNGS.Server.GameClient)">
+            <summary>
+            Invoked when a client disconnects from the server
+            </summary>
+            <param name="client">Disconnected client</param>
+            <returns>True if client session should be stored, False otherwise</returns>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.RegisterNetworkedObject(LiNGS.Common.GameLogic.INetworkedObject)">
+            <summary>
+            Registers a new <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> which will be created and syncronized on all clients. 
+            </summary>
+            <param name="networkedObject">The networked object</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.UnregisterNetworkedObject(LiNGS.Common.GameLogic.INetworkedObject,System.Boolean)">
+            <summary>
+            Unregisters a <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> from the server logic. Optionally, the <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> can be auto destroyed on all clients.
+            </summary>
+            <param name="networkedObject">The networked object</param>
+            <param name="destroyObjectOnClient">True to delete the object from all client, False to keep the object alive on the clients</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.RegisterClientAwareNetworkedObject(LiNGS.Common.GameLogic.INetworkedObject,System.String)">
+            <summary>
+            Registers a new <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> which will be syncronized on all clients. The Clients must already know about this object, the object will not be auto created on the clients.
+            </summary>
+            <param name="networkedObject">The networked object</param>
+            <param name="name">UNIQUE object name</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.UnregisterClientAwareNetworkedObject(LiNGS.Common.GameLogic.INetworkedObject)">
+            <summary>
+            Unregisters a <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> from the server logic. The Clients must be aware of the removal of this object, the object will not be auto destroyed on the clients.
+            </summary>
+            <param name="networkedObject">The networked object</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.SendMessageTo(LiNGS.Server.GameClient,LiNGS.Common.Network.NetworkMessage)">
+            <summary>
+            Send a custom <see cref="T:LiNGS.Common.Network.NetworkMessage"/> to a <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <exception cref="T:System.ArgumentException">Thrown when the <see cref="T:LiNGS.Common.Network.NetworkMessage"/> Type is not Event, Game or Error</exception>
+            <param name="client">Destination client</param>
+            <param name="message">Message to send</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.SendMessageTo(LiNGS.Server.GameClient,LiNGS.Common.Network.MessageData[])">
+            <summary>
+            Send a custom <see cref="T:LiNGS.Common.Network.NetworkMessage"/> to a <see cref="T:LiNGS.Server.GameClient"/>.
+            The message type is <see cref="F:LiNGS.Common.Network.NetworkMessage.MessageType.Game"/>
+            </summary>
+            <param name="client">Destination client</param>
+            <param name="data">The data that will be sent on the message</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.GetConnectedClients">
+            <summary>
+            Returns a collection with all the current connected <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <returns>Connected Clients</returns>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.DisconnectClient(LiNGS.Server.GameClient,System.String)">
+            <summary>
+            Disconnects a client from the server
+            </summary>
+            <param name="client">Client to disconnect</param>
+            <param name="reason">Reason for disconnect</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.GameLogicProcessor.Update(System.TimeSpan)">
+            <summary>
+            Update the component internals. Do not call this directly.
+            </summary>
+            <param name="timeSinceLastUpdate">Elapsed time since this function was last called.</param>
+        </member>
+        <member name="T:LiNGS.Server.GameLogic.INetworkedGame">
+            <summary>
+            Represents the access to the server game implementation logic. 
+            The game must implement this in order to use the LiNGS System. 
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.AcceptClient(LiNGS.Server.GameClient,LiNGS.Common.Network.NetworkMessage,System.Boolean)">
+            <summary>
+            Accept or refuse a <see cref="T:LiNGS.Server.GameClient"/> connection to the server
+            </summary>
+            <param name="client">Information about the connecting client</param>
+            <param name="message">The Connect Message sent by the client</param>
+            <param name="savedState">True if the server has saved a state from the last session of the Client, false otherwise</param>
+            <returns>The response of client the connection</returns>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.ClientDisconnected(LiNGS.Server.GameClient)">
+            <summary>
+            A <see cref="T:LiNGS.Server.GameClient"/> has disconnected from the game
+            </summary>
+            <param name="client">Client disconnected</param>
+            <returns>True to save the current state of the client, false otherwise</returns>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.DoesClientNeedToKnowAboutObject(LiNGS.Server.GameClient,LiNGS.Common.GameLogic.INetworkedObject)">
+            <summary>
+            Checks if the <see cref="T:LiNGS.Server.GameClient"/> needs to to know about the current state of the NetworkedObject
+            </summary>
+            <param name="client">The Client</param>
+            <param name="networkedObject">The Gameobject</param>
+            <returns>True if the Client most know about the game object on his current state, false otherwise</returns>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.ReceiveErrorMessage(LiNGS.Server.GameClient,LiNGS.Common.Network.NetworkMessage)">
+            <summary>
+            Error Message received from a <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <param name="client">Message sender</param>
+            <param name="message">Received Message</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.ReceiveEventMessage(LiNGS.Server.GameClient,LiNGS.Common.Network.NetworkMessage)">
+            <summary>
+            Event Message received from a <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <param name="client">Message sender</param>
+            <param name="message">Received Message</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.ReceiveGameMessage(LiNGS.Server.GameClient,LiNGS.Common.Network.NetworkMessage)">
+            <summary>
+            Game Message received from a <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <param name="client">Message sender</param>
+            <param name="message">Received Message</param>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.CreateClientObject(LiNGS.Server.GameClient,System.String,System.String)">
+            <summary>
+            Create a new local <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> to be synchronized from a <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <param name="client">The client of which the object belongs</param>
+            <param name="typeName">The type of the object that will be created</param>
+            <param name="name">The object name</param>
+            <returns>The created object.</returns>
+        </member>
+        <member name="M:LiNGS.Server.GameLogic.INetworkedGame.DestroyClientObject(LiNGS.Server.GameClient,LiNGS.Common.GameLogic.INetworkedObject,System.String)">
+            <summary>
+            Destroy a previously created <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/> from a <see cref="T:LiNGS.Server.GameClient"/>
+            </summary>
+            <param name="client">The client</param>
+            <param name="networkedObject">The reference to the object</param>
+            <param name="name">The name of the object</param>
+        </member>
+        <member name="T:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper">
+            <summary>
+            Used to wrap a client object state.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.#ctor">
+            <summary>
+            Creates a new empty instance of this class.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.Name">
+            <summary>
+            Name of the object.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.TypeName">
+            <summary>
+            Type of the object.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.Known">
+            <summary>
+            Indicates if the client knowns about the object.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.Sent">
+            <summary>
+            Indicates if the object information was sent to the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.AutoCreateObject">
+            <summary>
+            Indicates if this object was automatically created.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper.Fields">
+            <summary>
+            The list of <see cref="T:LiNGS.Server.State.Persistent.Data.FieldStateWrapper"/> of the object.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Server.State.Persistent.Data.ClientStateWrapper">
+            <summary>
+            Used to wrap a client state.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.State.Persistent.Data.ClientStateWrapper.#ctor">
+            <summary>
+            Creates a new empty instance of this class.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.State.Persistent.Data.ClientStateWrapper.#ctor(System.Collections.Generic.List{LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper},System.Collections.Generic.List{LiNGS.Server.State.Persistent.Data.ClientObjectStateWrapper})">
+            <summary>
+            Creates a new instance of this class with the provided state information.
+            </summary>
+            <param name="clientState">The client state.</param>
+            <param name="clientObjects">The client objects.</param>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientStateWrapper.CreatedAt">
+            <summary>
+            Time at which this state was created.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientStateWrapper.ClientObjects">
+            <summary>
+            The objects of the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.ClientStateWrapper.ClientState">
+            <summary>
+            The state of the server that was known by the client.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Server.State.Persistent.Data.FieldStateWrapper">
+            <summary>
+            Used to wrap a object field from a client state.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.FieldStateWrapper.Name">
+            <summary>
+            The name of the field.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.FieldStateWrapper.Value">
+            <summary>
+            The value of the field.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.FieldStateWrapper.Known">
+            <summary>
+            Indicates if the field is known by the client.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.State.Persistent.Data.FieldStateWrapper.Sent">
+            <summary>
+            Indicates if the value of the field was sent to the client.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Server.LiNGSServer">
+            <summary>
+            Server part of the LiNGS System.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.LiNGSServer.#ctor(LiNGS.Server.ServerProperties,LiNGS.Server.GameLogic.INetworkedGame)">
+            <summary>
+            Creates a new LiNGS Server instance. The server starts immediately.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">Thrown when any param is null.</exception>
+            <param name="properties">Properties of this server instance. The properties are not changeable at runtime.</param>
+            <param name="networkedGame">The instance of your game logic.</param>
+        </member>
+        <member name="M:LiNGS.Server.LiNGSServer.Update">
+            <summary>
+            Updates all server logic. 
+            Call this method on the same thread as the game logic to avoid synchronization issues.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.LiNGSServer.Shutdown">
+            <summary>
+            Disconnects all clients, terminates all connections and releases server resources
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.LiNGSServer.Properties">
+            <summary>
+            The properties of LiNGS System.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.LiNGSServer.LogicProcessor">
+            <summary>
+            Logic Processor used to manage <see cref="T:LiNGS.Common.GameLogic.INetworkedObject"/>s and send <see cref="T:LiNGS.Common.Network.NetworkMessage"/>s to <see cref="T:LiNGS.Server.GameClient"/>s.
+            </summary>
+        </member>
+        <member name="T:LiNGS.Server.ServerProperties">
+            <summary>
+            Properties to configure the behaviour the LiNGS Server.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.ServerProperties.#ctor">
+            <summary>
+            Creates a new instance of this class with the default values.
+            </summary>
+        </member>
+        <member name="M:LiNGS.Server.ServerProperties.#ctor(LiNGS.Server.ServerProperties)">
+            <summary>
+            Creates a new instance of this class with values based on other instance.
+            </summary>
+            <param name="properties">Existent object</param>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.Default">
+            <summary>
+            The Default values for <see cref="T:LiNGS.Server.ServerProperties"/>.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.ListenPort">
+            <summary>
+            The server port.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.MaxMessageSize">
+            <summary>
+            Maximum message size.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.MaxClients">
+            <summary>
+            Maximum clients that the server will accept.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.ImportantMessageTimeout">
+            <summary>
+            Time in milliseconds to wait for a answer to an important message.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.MaxImportantMessageRetries">
+            <summary>
+            The maximum time a important message can be resend. After those tries the connection with the receiver will be closed.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.MaxClientBlackoutTime">
+            <summary>
+            Maximum time in milliseconds that a client can be without comunicating with the server.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.MaxMessageWaitTime">
+            <summary>
+            Time in milliseconds that a message can be queued before being sent.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.SessionStorageBaseDirectory">
+            <summary>
+            The path for the base directory in which the session files will be stored.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.UseRealClassNames">
+            <summary>
+            Flag to use real class names instead of LiNGS generated names. Debug only.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.UseSimpleStateManager">
+            <summary>
+            Indicates if the server should use a simple state manager. Not implemented.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.EnablePersistentStates">
+            <summary>
+            Indicates if the server should persist client states.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.EnableLog">
+            <summary>
+            Indicates if the operations of the server are stored in a log. Not implemented.
+            </summary>
+        </member>
+        <member name="P:LiNGS.Server.ServerProperties.DeleteSessionFilesOnExit">
+            <summary>
+            Indicates if the server should delete all session files after the server is closed.
+            </summary>
+        </member>
+    </members>
+</doc>

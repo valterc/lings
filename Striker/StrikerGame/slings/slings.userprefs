@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\biodroid\PuzzleGame\Assets\Scripts\Gameplay\Elements\Dots\Dot.cs">
+    <Files>
+      <File FileName="..\..\..\..\..\biodroid\PuzzleGame\Assets\Scripts\Gameplay\Elements\Tiles\ArrowTile.cs" Line="99" Column="5" />
+      <File FileName="..\..\..\..\..\biodroid\PuzzleGame\Assets\Scripts\Gameplay\Elements\Dots\Dot.cs" Line="117" Column="20" />
+      <File FileName="..\..\..\..\..\biodroid\PuzzleGame\Assets\Scripts\Gameplay\Elements\Tiles\Tile.cs" Line="159" Column="2" />
+      <File FileName="..\..\..\..\..\biodroid\PuzzleGame\Assets\Scripts\Gameplay\GameController.cs" Line="28" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
